@@ -4,8 +4,8 @@
       <strong>{{ morceau.group_name }}</strong>
       :&nbsp{{morceau.musique_name}}&nbsp
     </div>
-    <button v-if="morceau.data_chekbox == true" @click="validation" class="check">Valider</button>
-    <button v-else @click="supprimer" class="check">Supprimer</button>
+    <button v-if="morceau.data_chekbox == true" @click="supprimer" class="check">Supprimer</button>
+    <button v-else @click="validation" class="check">Valider</button>
   </li>
 </template>
 
