@@ -1,7 +1,7 @@
 <template>
   <li>
     <div :class="{'data_chekbox':morceau.data_chekbox}">
-      <strong>{{ morceau.group_name | inconnu | cap}}</strong>
+      <strong>{{ morceau.group_name | cap | inconnu}}</strong>
       :&nbsp{{morceau.musique_name | cap}}&nbsp
     </div>
     <button v-if="morceau.data_chekbox == true" @click="supprimer" class="check">Supprimer</button>

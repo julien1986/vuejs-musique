@@ -27,7 +27,7 @@ export default {
   methods:{
     validation(id){
       console.log(id)
-      this.$emit("validation2", id)
+      this.$emit("validation2", id);
     },
     supprimer(id){
       this.$emit("supprimer2", id)
