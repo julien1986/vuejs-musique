@@ -41,16 +41,15 @@ export default {
   methods:{
     update_list(the_song){
       this.playlist.push(the_song)
-      sync()
+      this.sync()
     },
     update_data(id){
-      console.log(id)
       this.playlist[id].data_chekbox = true 
-      sync()
+      this.sync()
     },
     delete_item(id){
       this.playlist.splice(id, 1)
-      sync()
+      this.sync()
     },
     sync(){
       localStorage.setItem("playlist", JSON.stringify(this.playlist))

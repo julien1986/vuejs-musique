@@ -1,8 +1,8 @@
 <template>
   <li>
     <div :class="{'data_chekbox':morceau.data_chekbox}">
-      <strong>{{ morceau.group_name }}</strong>
-      :&nbsp{{morceau.musique_name}}&nbsp
+      <strong>{{ morceau.group_name | inconnu | cap}}</strong>
+      :&nbsp{{morceau.musique_name | cap}}&nbsp
     </div>
     <button v-if="morceau.data_chekbox == true" @click="supprimer" class="check">Supprimer</button>
     <button v-else @click="validation" class="check">Valider</button>
@@ -10,6 +10,9 @@
 </template>
 
 <script>
+import capitalize from '@/filters/capitalize'
+import inconnu from '@/filters/inconnu'
+
 export default {
   name: "morceau",
   props:["morceau", "KeyID"],
@@ -20,6 +23,10 @@ export default {
     supprimer(){
       this.$emit("supprimer", this.KeyID)
     }
+  },
+  filters:{
+    cap: capitalize,
+    inconnu: inconnu
   }
 }
 </script>
