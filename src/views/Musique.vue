@@ -46,6 +46,7 @@ export default {
     update_data(id){
       console.log(id)
       this.playlist[id].data_chekbox = true 
+      sync()
     },
     delete_item(id){
       this.playlist.splice(id, 1)
