@@ -3,7 +3,7 @@
     <h1>La liste des musiques:</h1>
     <hr>
     <div>
-      <list :playlist="playlist"></list>
+      <list :playlist="playlist" @validation2="update_data" @supprimer2="delete_item"></list>
     </div>
     <hr>
     <Form @data_send="update_list"></Form>
@@ -41,6 +41,17 @@ export default {
   methods:{
     update_list(the_song){
       this.playlist.push(the_song)
+      sync()
+    },
+    update_data(id){
+      console.log(id)
+      this.playlist[id].data_chekbox = true 
+    },
+    delete_item(id){
+      this.playlist.splice(id, 1)
+      sync()
+    },
+    sync(){
       localStorage.setItem("playlist", JSON.stringify(this.playlist))
     }
   },

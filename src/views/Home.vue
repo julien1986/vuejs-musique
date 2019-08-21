@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <img class="profil" alt="Vue logo" src="../assets/profil.jpg">
+    <h1>Apprentissage du framework VueJs</h1>
+    <p>réalisé par moi ^^</p>
   </div>
 </template>
 

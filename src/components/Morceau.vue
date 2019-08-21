@@ -1,19 +1,26 @@
 <template>
-  <li :class="{'data_chekbox':morceau.data_chekbox}">
-    <div>
+  <li>
+    <div :class="{'data_chekbox':morceau.data_chekbox}">
       <strong>{{ morceau.group_name }}</strong>
       :&nbsp{{morceau.musique_name}}&nbsp
     </div>
-    <a href="#">
-      <div class="check"></div>
-    </a>
+    <button v-if="morceau.data_chekbox == true" @click="validation" class="check">Valider</button>
+    <button v-else @click="supprimer" class="check">Supprimer</button>
   </li>
 </template>
 
 <script>
 export default {
   name: "morceau",
-  props:["morceau"]
+  props:["morceau", "KeyID"],
+  methods:{
+    validation(){
+      this.$emit("validation", this.KeyID)
+    },
+    supprimer(){
+      this.$emit("supprimer", this.KeyID)
+    }
+  }
 }
 </script>
 
@@ -25,15 +32,15 @@ li {
   justify-content: center;
   color: red;
 
-  .true {
-    color: green;
-  }
   .check {
-    width: 15px;
-    height: 15px;
-    border: 2px solid black;
     margin-top: 5px;
     margin-left: 5px;
+  }
+}
+.data_chekbox {
+  color: green;
+  > * {
+    color: green;
   }
 }
 </style>
